@@ -8,10 +8,10 @@
             <form class="form-signin" [formGroup]="reactive">
               <div class="form-label-group">
                   <label for="inputFName">First Name:</label>
-                <input type="text" id="inputFName" class="form-control" required formControlName="fname" [ngClass]="{'ng-invalid':!reactive.get('fname').valid}">   
-                <span class='invalid-feedback'> 
-                  <span *ngIf="reactive.get('fname').valid">First Name is Required</span>
-                  </span>
+                <input type="text" id="inputFName" class="form-control" formControlName="fname" [ngClass]="{'ng-invalid':!reactive.get('fname').valid}"/>   
+                <!-- <span class='invalid-feedback'>  -->
+                  <span *ngIf=" !reactive.get('fname').valid" class="alert-danger">First Name is Required</span>
+                  <!-- </span> -->
               </div>
               <div class="form-label-group">
                   <label for="inputLName">Last Name:</label>
@@ -23,20 +23,18 @@
                 
               </div>
               <div class="radio">
-                <label><input type="radio" formControlName="home" value="home" (click)="radiobuttonclicked('home')">Option 1</label>
+                <label><input type="radio" formControlName="home" value="option1" (click)="radiobuttonclicked('home')">Option 1</label>
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label><input type="radio" formControlName="home" value="office" (click)="radiobuttonclicked('office')">Option 2</label>
+                <label><input type="radio" formControlName="home" value="option2" (click)="radiobuttonclicked('office')">Option 2</label>
               </div>
               <div class="form-label-group">
                 <label for="inputPhone">Phone:</label>
               <input type="text" id="inputPhone" class="form-control" required formControlName="phone">
               
             </div>
-               <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="OnSubmit()" [disabled]='!reactive.valid'>Register</button>
+               <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="OnSubmit()">Register</button>
               <hr class="my-4">
-              console.log({{reactive.get('fname').value}})
-              console.log({{reactive.get('fname').valid}})
-              console.log({{reactive.get('fname').touched}})
+              console.log({{reactive.controls.fname.valid}})             
               </form>
           </div>
         </div>

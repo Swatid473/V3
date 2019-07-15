@@ -6,8 +6,16 @@ import { FormControl,FormGroup,Validators,FormBuilder } from '@angular/forms';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
-  constructor(public fb:FormBuilder) { }
+reactive:FormGroup;
+  constructor(public fb:FormBuilder) { 
+    this.reactive=new FormGroup({
+      fname:new FormControl('',Validators.required),
+      lname:new FormControl(''),
+      address:new FormControl(''),
+      home:new FormControl('home'),
+      phone:new FormControl('')
+    });
+  }
 
   ngOnInit() {
   }
@@ -15,13 +23,7 @@ export class RegistrationComponent implements OnInit {
 // lname:string='';
 // address:string='';
 flag:boolean;
-reactive=new FormGroup({
-  fname:new FormControl('',Validators.minLength(3)),
-  lname:new FormControl(''),
-  address:new FormControl(''),
-  home:new FormControl('home'),
-  phone:new FormControl('')
-});
+
 //form builder code
 // formbuilder=this.fb.group(
 //   {
@@ -33,7 +35,7 @@ reactive=new FormGroup({
 //set and remove validators at runtime
 radiobuttonclicked(selectedvalue:string):void
 {
-if(selectedvalue=='home')
+if(selectedvalue=='option1')
 {
  this.reactive.controls.phone.setValidators(Validators.required)
 }
@@ -45,6 +47,6 @@ this.reactive.controls.phone.updateValueAndValidity();
 }
 OnSubmit()
 {
-  console.log(this.reactive.value.fname);
+  console.log(this.reactive.controls.fname.valid);
 }
 }
