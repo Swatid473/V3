@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">REgistration</h5>
+            
+            <form class="form-signin" [formGroup]="reactive">
+              <div class="form-label-group">
+                  <label for="inputFName">First Name:</label>
+                <input type="text" id="inputFName" class="form-control" required formControlName="fname" [ngClass]="{'ng-invalid':!reactive.get('fname').valid}">   
+                <span class='invalid-feedback'> 
+                  <span *ngIf="reactive.get('fname').valid">First Name is Required</span>
+                  </span>
+              </div>
+              <div class="form-label-group">
+                  <label for="inputLName">Last Name:</label>
+                <input type="text" id="inputLName" class="form-control" required formControlName="lname">    
+              </div>
+              <div class="form-label-group">
+                  <label for="inputAddress">Address:</label>
+                <input type="text" id="inputAddress" class="form-control" required formControlName="address" >
+                
+              </div>
+              <div class="radio">
+                <label><input type="radio" formControlName="home" value="home" (click)="radiobuttonclicked('home')">Option 1</label>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" formControlName="home" value="office" (click)="radiobuttonclicked('office')">Option 2</label>
+              </div>
+              <div class="form-label-group">
+                <label for="inputPhone">Phone:</label>
+              <input type="text" id="inputPhone" class="form-control" required formControlName="phone">
+              
+            </div>
+               <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="OnSubmit()" [disabled]='!reactive.valid'>Register</button>
+              <hr class="my-4">
+              console.log({{reactive.get('fname').value}})
+              console.log({{reactive.get('fname').valid}})
+              console.log({{reactive.get('fname').touched}})
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

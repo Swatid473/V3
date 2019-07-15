@@ -1,0 +1,11 @@
+  /* Green */
+  .success {
+    border-color: #4CAF50;
+    color: green;
+  }
+  /* Red */
+  .danger {
+    border-color: #f44336;
+    color: red
+  }
+  

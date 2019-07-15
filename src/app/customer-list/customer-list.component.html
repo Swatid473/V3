@@ -1,0 +1,31 @@
+<div calss="card">
+    <div class="card-body">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th><button class="btn btn-primary btn-sm" (click)="ShowImg()">{{ShowHideFlag?'Hide':'Show'}}Image</button></th>
+            <th>Name</th>
+            <th>Desc</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Rating</th>
+          </tr>
+      <tr class="" *ngFor="let list of CustomerList">
+        <td>{{list.id}}</td>
+        <td><img *ngIf="ShowHideFlag" src={{list.img}} width="50px"></td>        
+        <!-- <td><a [routerLink]="['/detail',list.id,{name:list.title,info:list.text}]">{{list.title}}</a></td> -->
+        <td><a [routerLink]="['/customer',list.id,'detail']">{{list.title}}</a></td>
+        <td>{{list.text}}</td>
+        <td>{{list.price|currency:'&#8377;'}}</td>
+        <td>{{list.quantity}}</td>
+        <td>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </td>
+     </tr>
+    </table>
+    </div>
+  </div>

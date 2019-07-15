@@ -1,0 +1,38 @@
+<div class="card" >
+  <div class="card-header">WELCOME:{{name}}</div>
+  <div class="card-body">
+      <i class="fa fa-chevron-left" [routerLink]="['/customer']"></i>
+  <!-- <button [routerLink]="['/detail/20']">Edit</button> -->
+  <table>
+    <tr>
+      <td><img src={{imgUrl}} width="130px"></td>
+      <td colspan="2"></td>
+      <td>
+          <table >
+              <tr>
+                <td> <label class="form-label">Name:</label></td>
+                <td><input type="text" class="form-control" value={{name}}></td>
+              </tr>
+              <tr>
+                  <td> <label class="form-label">Desc:</label></td>
+                <td><input type="text" class="form-control" value={{desc}}/></td>
+              </tr>
+              <tr>
+                  <td> <label class="form-label">Price:</label></td>
+                <td><input type="text" class="form-control" value={{price}}/></td>
+              </tr>
+              <tr>
+                  <td> <label class="form-label">Quantity:</label></td>
+                <td><input type="text" class="form-control" value={{quantity}}/></td>
+              </tr>
+          </table>
+      </td>
+    </tr>
+    <tr>
+       <td><button class="btn btn-sm info">Save</button>&nbsp;&nbsp;
+       <button class="btn btn-sm warning">Cancel</button>&nbsp;&nbsp;
+       <button class="btn btn-sm danger">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+</div>

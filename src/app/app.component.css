@@ -1,0 +1,6 @@
+.nav .nav-item .nav-link.active{
+    background-color:gainsboro;
+}
+/* .nav-link.active:after{
+    border-left-color:gainsboro;
+} */

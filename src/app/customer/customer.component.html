@@ -1,0 +1,15 @@
+<div>
+  <h4>Customers</h4>
+  <div class="card">
+    <table>
+      <tr>
+        <td class="card-body" *ngFor="let list of CustomerList">
+            <h4 class="card-title">{{list.title}}</h4>
+            <p class="card-text">{{list.text}}</p>
+            <a class="btn  btn-sm btn-primary" [routerLink]="['../customerlist']">See Profile</a>
+        </td>
+        </tr>
+    </table>
+    <router-outlet></router-outlet>
+  </div>
+
